@@ -1,4 +1,4 @@
-package rifat.basic.todolist
+package rifat.basic.testtodolist
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,17 +6,13 @@ import android.os.Bundle
 import android.os.Handler
 
 class SplashActivity : AppCompatActivity() {
-
-    private val SPLASH_DELAY: Long = 3000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
-            // This code will be executed after the delay
-            val mainIntent = Intent(this, LoginActivity::class.java)
-            startActivity(mainIntent)
-            finish()
-        }, SPLASH_DELAY)
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }, 3000)
     }
 }

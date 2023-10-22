@@ -1,16 +1,16 @@
-package rifat.basic.instagramtest
+package rifat.basic.testtodolist
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemPostAdapter: RecyclerView.Adapter<ItemPostAdapter.ViewHolder>() {
+class ItemTodoAdapter: RecyclerView.Adapter<ItemTodoAdapter.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post,
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo,
             parent,
             false)
         return ViewHolder(view)
