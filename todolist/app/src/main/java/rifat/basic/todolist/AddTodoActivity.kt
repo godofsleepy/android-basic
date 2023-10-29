@@ -1,7 +1,10 @@
 package rifat.basic.todolist
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
@@ -24,6 +27,7 @@ class AddTodoActivity : AppCompatActivity() {
         val inputDate = findViewById<TextInputEditText>(R.id.input_date)
         val btnSubmit = findViewById<Button>(R.id.elevatedButton)
         val tfJudul = findViewById<TextInputLayout>(R.id.tf_judul)
+        val tfDesc = findViewById<TextInputLayout>(R.id.tf_deskripsi)
 
         val datePicker =
             MaterialDatePicker.Builder.datePicker()
@@ -45,6 +49,22 @@ class AddTodoActivity : AppCompatActivity() {
             }else {
                 tfJudul.error = null
             }
+
+            val title = tfJudul.editText?.text.toString()
+            val desc = tfDesc.editText?.text.toString()
+            val date = inputDate.text.toString()
+            val id = System.currentTimeMillis().toInt()
+
+            val data = Todo(
+                title,desc, id,date, false
+            )
+            LocalStorage().saveList(this, data)
+            val returnIntent = Intent()
+            returnIntent.putExtra("RETURNED_DATA_KEY", true)
+            setResult(Activity.RESULT_OK, returnIntent)
+            finish()
+
+
         }
     }
 
